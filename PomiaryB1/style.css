@@ -1,0 +1,581 @@
+/* =========================
+🎨 SYSTEM THEME
+========================= */
+
+:root {
+  --bg: #0b1220;
+  --panel: #0f172a;
+  --card: #ffffff;
+  --muted: #64748b;
+
+  --primary: #3b82f6;
+  --primary-dark: #1d4ed8;
+
+  --ok: #22c55e;
+  --nok: #ef4444;
+
+  --border: #e2e8f0;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* =========================
+BASE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  margin: 0;
+  background: #f1f5f9;
+  color: #0f172a;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+HEADER
+========================= */
+
+#header {
+  height: 64px;
+  background: linear-gradient(90deg, #0f172a, #111827);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+#header h1 {
+  font-size: 16px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+#menuBtn,
+#homeBtn {
+  font-size: 18px;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+#menuBtn:hover,
+#homeBtn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+#headerRight {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+/* =========================
+MENU
+========================= */
+
+#menu {
+  position: fixed;
+  top: 64px;
+  left: -290px;
+  width: 290px;
+  height: 100%;
+  background: #0b1220;
+  color: white;
+  overflow: auto;
+  transition: 0.25s ease;
+  z-index: 9;
+  box-shadow: 15px 0 40px rgba(0,0,0,0.25);
+}
+
+#menu.open {
+  left: 0;
+}
+
+.menu-header {
+  padding: 14px;
+  background: #111827;
+  cursor: pointer;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.menu-list div {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #cbd5e1;
+  transition: 0.2s;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  align-items: center;
+}
+
+.menu-list div:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔥 centrowanie dzieci */
+}
+/* =========================
+MAIN
+========================= */
+
+#main {
+  margin-top: 80px;
+  padding: 20px;
+  flex: 1;
+  padding-bottom: 80px;
+}
+
+/* =========================
+CARD
+========================= */
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 14px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+#closeModalX {
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 14px;
+  background: rgb(221, 20, 20);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+#modalBox {
+  position: relative; /* 🔥 kluczowe */
+}
+
+#closeModalX {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+#pdfBtn {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.card {
+  position: relative; /* 🔥 punkt odniesienia */
+}
+
+.card {
+  padding-bottom: 70px;
+}
+
+#saveBtn {
+  margin-top: 1000px;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+}
+/* =========================
+TABLE
+========================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: #0f172a;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 13px;
+}
+
+tr:hover {
+  background: #f8fafc;
+}
+
+/* =========================
+STATUS
+========================= */
+
+.ok { color: var(--ok); font-weight: 700; }
+.nok { color: var(--nok); font-weight: 700; }
+
+/* =========================
+SPLIT VIEW – POPRAWIONY
+========================= */
+
+.split {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+  margin-top: 15px;
+}
+
+.left {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--border);
+  min-height: 500px;
+}
+
+.left img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.right {
+  padding: 10px;
+}
+
+/* =========================
+INPUTS
+========================= */
+
+.dim-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.dim-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.dim-input.ok {
+  border-color: var(--ok);
+  background: #f0fdf4;
+}
+
+.dim-input.nok {
+  border-color: var(--nok);
+  background: #fef2f2;
+}
+
+/* =========================
+MODEL HEADER
+========================= */
+
+.modelHeader {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* =========================
+MODAL – 🔥 FIX UCINANIA
+========================= */
+
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+
+  overflow-y: auto; /* 🔥 KLUCZ */
+  padding: 20px;
+}
+
+#modal.show {
+  display: block;
+}
+
+#modalBox {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: min(1200px, 95vw);
+  margin: auto;
+}
+
+/* 🔥 brak limitu wysokości */
+
+.modalSplit {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+}
+
+.modalLeft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalLeft img {
+  width: 100%;
+  height: auto;
+  max-height: none; /* 🔥 NAJWAŻNIEJSZE */
+  object-fit: contain;
+    margin-top: 10px;
+}
+
+.modalRight {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+
+/* =========================
+FORM GRID
+========================= */
+
+#form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.strefa-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.strefa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .modalSplit {
+    grid-template-columns: 1fr;
+  }
+
+  .left img {
+    max-height: 60vh;
+  }
+}
+
+@media (max-width: 600px) {
+  #main {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .dim-input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  #form {
+    grid-template-columns: 1fr;
+  }
+
+  .strefa-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #main {
+    max-width: 1400px;
+    margin: 80px auto;
+  }
+
+  .split {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .left img {
+    max-height: 80vh;
+  }
+}
+
+/* =========================
+DATE FILTER
+========================= */
+
+#dateFilter {
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+}
+
+#dateFilter:hover {
+  border-color: #cbd5e1;
+}
+
+#dateFilter:focus {
+  border-color: var(--primary);
+}
+
+#dateFilter::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* =========================
+Adnotacja
+========================= */
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+
+  background: #22c55e;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.menu-logout {
+  padding: 10px;
+  border-radius: 10px;
+  background: #ef4444;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+  width: 80%;
+      margin: 10px auto;   /* 🔥 centruje poziomo */
+  
+}
+
+.menu-logout:hover {
+  background: #dc2626;
+  padding: 10px;
+}
+
+.menu-user-label {
+  text-align: center;
+  padding: 10px;
+}
+
+.operator-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.operator-icon {
+  font-size: 16px;
+  align-items: center;
+  color: #0b1220;
+}
+
+#operatorInput {
+  border: none;
+  outline: none;
+  width: 120px;
+  font-weight: bold;
+}
