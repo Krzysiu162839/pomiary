@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>System Pomiarów PRO</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+
+<header id="header">
+  <button id="menuBtn">☰</button>
+  <h1>System Pomiarów B1</h1>
+
+  <div id="headerRight">
+    <input type="date" id="dateFilter">
+   <div class="operator-box">
+  <span class="operator-icon">👤 ID</span>
+  <input id="operatorInput" >
+</div>
+    <span id="homeBtn">🏠 Home page</span>
+  </div>
+</header>
+
+<div id="menu"></div>
+
+<div id="main">
+
+  <!-- HOME -->
+  <div id="home" class="card">
+    <h3>📊 Complete Measurement History</h3>
+
+    <table id="historiaAll">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Model</th>
+          <th>Part</th>
+          <th>Part No.</th>
+          <th>Operator</th>
+          <th>Status</th>
+          <th>NOK</th>
+          <th>🔍</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- APP -->
+  <div id="app" style="display:none;">
+
+    <div class="card">
+      <div id="modelHeader" class="modelHeader"></div>
+
+      <button id="saveBtn">💾 Save</button>
+
+      <div class="split">
+
+        <div class="left">
+          <img id="rysunekImg" src="" alt="rysunek">
+        </div>
+
+        <div class="right">
+          <div id="form"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Measurement History</h3>
+
+      <table id="historia">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Project</th>
+            <th>Part</th>
+            <th>Part No.</th>
+            <th>Operator</th>
+            <th>Status</th>
+            <th>NOK</th>
+            <th>🔍</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal">
+  <div id="modalBox">
+
+    <button id="closeModalX">×</button>
+
+    <h3>🔍 Measurement Details</h3>
+
+    <button id="pdfBtn">📄 Download PDF</button>
+
+    <div id="modalInfo"></div>
+
+    <div class="modalSplit">
+
+      <div class="modalLeft">
+        <img id="modalImg" src="" alt="rysunek">
+      </div>
+
+      <div class="modalRight">
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Value</th>
+              <th>LCL</th>
+              <th>UCL</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="modalTable"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast">✅ Pomiar zapisany</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
